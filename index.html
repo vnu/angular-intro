@@ -1,30 +1,26 @@
 <!DOCTYPE html>
-<html ng-app='store'>
-	<head>
-		<link rel='stylesheet' type='text/css' href='bootstrap/css/bootstrap.min.css'/>
-	</head>
-	<body ng-controller="StoreController as store">
-		<ul class ='list-group'>
-			<li class='list-group-item' ng-repeat='product in store.products'>
-				<h3>
-					{{product.name}}
-					<em class='pull-right'>{{product.price | currency}}</em>
-				</h3>
-			</li>
-		</ul>
-		<!-- <div ng-repeat='product in store.products'>
-			<h1>Product Name: {{product.name}}</h1>
-			<h2>Product Price: ${{product.price}}</h2>
-			<p>Product Description: {{product.description}}</p>
-			<button ng-show='product.canPurchase'>Add to Cart</button>
-		</div> -->
-		<!-- <div ng-hide='store.product.soldOut'>
-			<h1>Product Name: {{store.product.name}}</h1>
-			<h2>Product Price: ${{store.product.price}}</h2>
-			<p>Product Description: {{store.product.description}}</p>
-			<button ng-show='store.product.canPurchase'>Add to Cart</button>
-		</div> -->
-		<script type="text/javascript" src='angular.min.js'></script>
-		<script type="text/javascript" src='app.js'></script>
-	</body>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body class="list-group" ng-controller="StoreController as store">
+    <!--  Product Container  -->
+    <div class="list-group-item" ng-repeat="product in store.products">
+      <h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
+
+      <!-- Image Gallery  -->
+      <div class="gallery">
+        <div class="img-wrap">
+          <img ng-src="{{product.images[0]}}" />
+        </div>
+        <ul class="img-thumbnails clearfix">
+          <li class="small-image pull-left thumbnail" ng-repeat='image in product.images'>
+            <img ng-src="{{image}}" />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
 </html>
