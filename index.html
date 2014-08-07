@@ -3,9 +3,14 @@
 	<head>
 		<link rel='stylesheet' type='text/css' href='bootstrap/bootstrap.min.css'/>
 	</head>
-	<body>
+	<body ng-controller="StoreController as store">
+		<div ng-hide='store.product.soldOut'>
+			<h1>Product Name: {{store.product.name}}</h1>
+			<h2>Product Price: ${{store.product.price}}</h2>
+			<p>Product Description: {{store.product.description}}</p>
+			<button ng-show='store.product.canPurchase'>Add to Cart</button>
+		</div>
 		<script type="text/javascript" src='angular.min.js'></script>
 		<script type="text/javascript" src='app.js'></script>
-		<p> {{'Hello'+' Vnu'}}</p>
 	</body>
 </html>
