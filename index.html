@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html ng-app='store'>
 	<head>
-		<link rel='stylesheet' type='text/css' href='bootstrap/bootstrap.min.css'/>
+		<link rel='stylesheet' type='text/css' href='bootstrap/css/bootstrap.min.css'/>
 	</head>
 	<body ng-controller="StoreController as store">
-		<div ng-hide='store.product.soldOut'>
+		<div ng-repeat='product in store.products'>
+			<h1>Product Name: {{product.name}}</h1>
+			<h2>Product Price: ${{product.price}}</h2>
+			<p>Product Description: {{product.description}}</p>
+			<button ng-show='product.canPurchase'>Add to Cart</button>
+		</div>
+		<!-- <div ng-hide='store.product.soldOut'>
 			<h1>Product Name: {{store.product.name}}</h1>
 			<h2>Product Price: ${{store.product.price}}</h2>
 			<p>Product Description: {{store.product.description}}</p>
 			<button ng-show='store.product.canPurchase'>Add to Cart</button>
-		</div>
+		</div> -->
 		<script type="text/javascript" src='angular.min.js'></script>
 		<script type="text/javascript" src='app.js'></script>
 	</body>
