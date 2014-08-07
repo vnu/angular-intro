@@ -4,12 +4,20 @@
 		<link rel='stylesheet' type='text/css' href='bootstrap/css/bootstrap.min.css'/>
 	</head>
 	<body ng-controller="StoreController as store">
-		<div ng-repeat='product in store.products'>
+		<ul class ='list-group'>
+			<li class='list-group-item' ng-repeat='product in store.products'>
+				<h3>
+					{{product.name}}
+					<em class='pull-right'>{{product.price | currency}}</em>
+				</h3>
+			</li>
+		</ul>
+		<!-- <div ng-repeat='product in store.products'>
 			<h1>Product Name: {{product.name}}</h1>
 			<h2>Product Price: ${{product.price}}</h2>
 			<p>Product Description: {{product.description}}</p>
 			<button ng-show='product.canPurchase'>Add to Cart</button>
-		</div>
+		</div> -->
 		<!-- <div ng-hide='store.product.soldOut'>
 			<h1>Product Name: {{store.product.name}}</h1>
 			<h2>Product Price: ${{store.product.price}}</h2>
